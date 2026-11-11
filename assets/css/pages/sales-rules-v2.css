@@ -1,0 +1,130 @@
+/* Sales Rules (sales-rules-v2.html) — page-specific styles.
+   Everything else comes from the case-study components in styles.css. */
+
+/* Bold text is semibold on this page, as on the original. */
+strong { font-weight: 600; }
+
+/* Cover mockup on a pink band that runs edge to edge. The border-image paints
+   the band outside the box without making the page wider. */
+.sr-band {
+  margin-top: 96px;
+  padding: 48px 0;
+  border-image: linear-gradient(var(--accent) 0 0) fill 0 / 0 / 0 100vw;
+}
+.sr-band img { max-width: 928px; margin: 0 auto; border-radius: 0; }
+
+/* Problem: the two grey pain-point cards */
+.sr-problems { margin-top: 40px; }
+.sr-problems .cs-card { font-weight: 500; color: var(--ink-strong); background: rgba(245, 245, 245, .75); }
+
+/* "The OLD way" — video with a note beside it */
+.sr-old-way {
+  display: grid; grid-template-columns: 835fr 285fr; gap: 32px; align-items: center;
+  margin-top: 96px; padding: 37px 0;
+  color: var(--ink-strong);
+}
+.sr-old-way .cs-figure { margin-top: 0; }
+.sr-old-way video { border-radius: 12px; }
+.sr-old-way h3 { font-weight: 600; font-size: 20px; line-height: 1.6; margin-bottom: 8px; }
+.sr-old-way p + p { margin-top: 26px; }
+
+/* Research: scrollable sticky-note board (left) + three insight cards (right) */
+.sr-research {
+  display: grid; grid-template-columns: 552fr 600fr;
+  margin-top: 96px;
+  border: 1px solid #e7e7e7; border-radius: 24px; overflow: hidden;
+}
+.sr-board { position: relative; min-height: 360px; border-right: 1px solid #e7e7e7; }
+.sr-board-scroll { position: absolute; inset: 0; overflow-x: auto; overflow-y: hidden; }
+.sr-board-scroll figure, .sr-board-scroll img { height: 100%; }
+.sr-board-scroll img { width: auto; max-width: none; }
+.sr-board-scroll:focus-visible { outline-offset: -4px; }
+.sr-board-label {
+  position: absolute; z-index: 1; top: 32px; left: 30px;
+  padding: 15px 16px;
+  background: var(--accent); border: 1px solid rgba(0, 0, 0, .1); border-radius: 36px;
+  font-weight: 600; font-size: 20px; line-height: 1.2; color: var(--ink-strong);
+  pointer-events: none;
+}
+.sr-insights {
+  display: grid; align-content: start; gap: 32px;
+  list-style: none; margin: 0; padding: 24px;
+  background: rgba(245, 245, 245, .65);
+  color: var(--ink-strong);
+}
+.sr-insights li { background: #fff; border-radius: 12px; padding: 24px 24px 24px 51px; }
+.sr-insights h3 { position: relative; font-weight: 500; font-size: 16px; line-height: 1.6; margin-bottom: 7px; }
+.sr-insights h3 img { position: absolute; left: -27px; top: 4px; width: 17px; }
+
+/* "How can we…" statement: smaller and lighter than the shared .cs-quote */
+.cs-quote { font-size: 32px; font-weight: 600; border-radius: 12px; }
+
+/* Challenge / Solution pairs: grey card on the left, pink card on the right */
+.sr-pair {
+  display: grid; grid-template-columns: 1fr 1fr;
+  margin-top: 96px; border-radius: 24px; overflow: hidden;
+}
+.sr-challenge, .sr-solution { display: flex; flex-direction: column; padding: 48px; }
+.sr-challenge { background: rgba(245, 245, 245, .65); }
+.sr-solution { background: var(--accent); }
+.sr-solution mark { background: #fff; }
+.sr-pair h3 { font-weight: 600; font-size: 20px; line-height: 1.2; margin-bottom: 10px; }
+.sr-pair p { margin-bottom: 48px; }
+.sr-pair figure { margin: auto 0; }           /* centre the screenshot in the space left */
+.sr-pair img { width: 100%; border-radius: var(--radius); }
+.sr-check {
+  width: 128px; height: 128px; margin: auto;
+  fill: none; stroke: #fff; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Impact: extra space above, as in the original (the prototype video there
+   sat in a taller letterboxed frame) */
+.sr-impact { margin-top: 148px; }
+
+/* Impact numbers: same columns as the project facts above */
+.cs-stats { gap: 24px; margin-top: 48px; }
+.cs-stats strong { line-height: 1.6; }
+.cs-stats span { font-weight: 500; color: var(--ink-strong); }
+
+/* Testimonials: text slides in the shared carousel */
+.sr-testimonials { margin-top: 72px; }
+.sr-testimonials figure {
+  display: flex; flex-direction: column; justify-content: center;
+  min-height: 561px; padding: 48px 111px;
+  background: var(--surface); border-radius: 24px;
+  font-weight: 500; font-size: 32px; line-height: 1.4; color: #000;
+}
+.sr-testimonials blockquote { margin: 0; max-width: 910px; }
+.sr-testimonials figcaption { margin-top: 45px; }
+.sr-testimonials .carousel-btn[data-dir="-1"] { left: 22px; }
+.sr-testimonials .carousel-btn[data-dir="1"] { right: 22px; }
+.sr-testimonials .carousel-btn svg { fill: currentColor; }
+
+/* Phone / tablet: one column ---------------------------------------------- */
+@media (max-width: 999.98px) {
+  .sr-band { margin-top: 64px; padding: 24px 0; }
+  .sr-old-way { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; padding: 0; }
+
+  .sr-research { grid-template-columns: 1fr; margin-top: 48px; }
+  .sr-board { border-right: 0; border-bottom: 1px solid #e7e7e7; }
+  .sr-board-label { top: 16px; left: 16px; padding: 6px 14px; font-size: 16px; }
+  .sr-insights { padding: 16px; gap: 16px; }
+  .sr-insights li { padding: 20px 20px 20px 44px; }
+
+  .cs-quote { font-size: 24px; }
+
+  .sr-pair { grid-template-columns: 1fr; margin-top: 48px; }
+  .sr-challenge, .sr-solution { padding: 24px; }
+  .sr-pair h3 { font-size: 18px; }
+  .sr-pair p { margin-bottom: 24px; }
+  .sr-check { width: 80px; height: 80px; }
+
+  .sr-impact { margin-top: 64px; }
+  .sr-testimonials { margin-top: 48px; }
+  .sr-testimonials figure { min-height: 0; padding: 32px 24px 80px; font-size: 20px; }
+  .sr-testimonials figcaption { margin-top: 24px; }
+  .sr-testimonials .carousel-btn { top: auto; bottom: 16px; transform: none; }
+  .sr-testimonials .carousel-btn[data-dir="-1"] { left: calc(50% - 96px); }
+  .sr-testimonials .carousel-btn[data-dir="1"] { right: calc(50% - 96px); }
+  .sr-testimonials .carousel-dots { bottom: 29px; }
+}

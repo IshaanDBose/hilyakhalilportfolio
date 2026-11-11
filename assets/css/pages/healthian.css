@@ -1,0 +1,45 @@
+/* Healthian case study — page-specific layout. Loaded after styles.css. */
+
+/* Cover image: cropped to a 1000x637 window on the accent colour. */
+.hl-cover { margin-top: 96px; max-width: 1000px; margin-left: auto; margin-right: auto; background: var(--accent); }
+.hl-cover img { aspect-ratio: 1000 / 637; object-fit: cover; border-radius: 0; }
+
+/* Competitive analysis: findings list + table on a grey block. */
+.hl-research {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 506px); gap: 56px; align-items: start;
+  margin-top: 16px; padding: 24px 0 0 32px;
+  background: var(--surface);
+}
+.hl-findings { list-style: none; padding: 18px 0 24px; font-size: 14px; line-height: 1.2; color: #000; }
+.hl-findings li + li { margin-top: 16px; }
+.hl-findings strong { display: block; font-weight: 600; margin-bottom: 4px; }
+.hl-research img { width: 100%; }
+
+/* Stacked user-flow diagrams */
+.hl-flows img + img { margin-top: 24px; }
+
+/* Key features: each sub-feature is a block of subhead, text and image pair. */
+.hl-feature { margin-top: 96px; }
+.hl-feature:first-of-type { margin-top: 48px; }
+.hl-gamification { align-items: center; }
+.hl-pair { grid-template-columns: 2fr 3fr; max-width: 940px; margin-inline: auto; align-items: stretch; }
+.hl-pair--wide { grid-template-columns: 38fr 62fr; }  /* square image + landscape image */
+/* Captions share a row; images centre vertically under them. */
+.hl-pair figure { display: grid; grid-template-rows: auto 1fr; align-items: center; }
+.hl-pair img, .hl-gamification img { width: 100%; }
+.hl-pair .cs-caption { margin-bottom: 32px; }
+
+/* Final prototype: phone-sized video, centred. */
+.hl-video { max-width: 378px; margin-inline: auto; }
+.hl-video video { border-radius: 0; }
+
+@media (max-width: 999.98px) {
+  .hl-pair, .hl-pair--wide { grid-template-columns: 1fr; }
+  .hl-cover { margin-top: 64px; }
+  .hl-research { grid-template-columns: 1fr; gap: 32px; padding: 24px 0 0; }
+  .hl-findings { padding: 0 24px; }  /* text above, table below */
+  .hl-feature { margin-top: 64px; }
+  .hl-feature:first-of-type { margin-top: 40px; }
+  .hl-pair, .hl-gamification { gap: 40px; }
+  .hl-pair .cs-caption { margin-bottom: 16px; }
+}

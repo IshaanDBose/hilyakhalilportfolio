@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRx Tracker — Hilya Khalil</title>
+  <meta name="description" content="Designing SRx Achievement Tracker, a 0-to-1 Salesforce tool that lets Dr. Reddy's sales team set targets, get them approved and track achievements in one place.">
+  <link rel="canonical" href="https://www.hilya.me/srx">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SRx Tracker — Hilya Khalil">
+  <meta property="og:description" content="Designing SRx Achievement Tracker, a 0-to-1 Salesforce tool that lets Dr. Reddy's sales team set targets, get them approved and track achievements in one place.">
+  <meta property="og:url" content="https://www.hilya.me/srx">
+  <meta property="og:image" content="https://www.hilya.me/assets/img/home/card-srx.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/alcyone-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/alcyone-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/pages/srx.css">
+  <script src="assets/js/analytics.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body id="top" class="page-case" style="--accent: var(--green)">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main">
+      <a href="./">Home</a>
+      <a href="about">About me</a>
+      <a href="https://drive.google.com/file/d/14Z7RIZ9NV_spaWXV6bZhX1Zu1Br9sVu4/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="cs-cover">
+      <h1 class="cs-title">SRx Achievement Tracker</h1>
+    </div>
+    <svg class="cs-wave" viewBox="0 0 1440 99" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 61.875 48 57.737C96 53.754 192 45.246 288 43.313 384 41.379 480 45.246 576 59.825 672 74.25 768 99 864 99 960 99 1056 74.25 1152 70.112 1248 66.129 1344 82.371 1392 90.763L1440 99V0H0Z"/>
+    </svg>
+
+    <div class="cs-body">
+      <section class="cs-section" aria-labelledby="context">
+        <h2 class="cs-h" id="context">Context</h2>
+        <p class="cs-text--full">I was the sole UX Designer in building an advanced tooling system for Dr. Reddy's Laboratories' (DRL) in-house Sales Team. This project centered on the prospective SRx tracker, an advanced tool on Salesforce that would allow the salespeople and policymakers to prospect, sell, approve, and finish efficiently. <mark>This was a 0 to 1 design.</mark></p>
+        <dl class="cs-meta">
+          <div><dt>Time duration</dt><dd>Q4 2023</dd></div>
+          <div><dt>Contribution</dt><dd>Product strategy<br>User research<br>Product design</dd></div>
+          <div><dt>Team</dt><dd>1 x Product manager<br>2 x Product designer<br>2 x Software engineer</dd></div>
+        </dl>
+      </section>
+    </div>
+
+    <!-- Full-width green band with the cover image sitting on its bottom edge -->
+    <div class="srx-band">
+      <div class="cs-body">
+        <figure>
+          <img src="assets/img/srx/cover.webp" alt="SRx Achievement Tracker in Salesforce: an Achievement Summary table of target versus achieved sales per team member, overlapped by the FY 24 target screen showing the SRx head's target and the East and West region targets awaiting approval" width="2400" height="1391" decoding="async">
+        </figure>
+      </div>
+    </div>
+
+    <div class="cs-body">
+      <section class="cs-section" aria-labelledby="impact-business">
+        <h2 class="cs-h" id="impact-business">Business impact</h2>
+        <p class="cs-text--full">Being able to automate and simplify the creation of sales target values as well as the tracking of sales achievements would <mark>lead to a higher revenue</mark> achieved by the sales team that is currently pulling in around $160 million annually</p>
+      </section>
+
+      <section class="cs-section" aria-labelledby="problem">
+        <h2 class="cs-h" id="problem">Problem</h2>
+        <p class="cs-text--full">Dr Reddy’s Laboratories (DRL) is a globally traded company that sells billions of dollars of generic prescription drugs, yet <mark>relies on the outdated system</mark> of Excel, paper notes, and instant messages to communicate.</p>
+        <p class="cs-text--full">The <mark>lack of transparency</mark> causes the salespeople to not always be sure of where they stand within their team and can hurt the culture that the Sales Team is trying to create.</p>
+
+        <ol class="srx-pains">
+          <li>The system is laggy for users</li>
+          <li>Prone to human error</li>
+          <li>Needs for better access control</li>
+        </ol>
+
+        <figure class="cs-figure srx-gif">
+          <img src="assets/img/srx/demo.gif" alt="Animated spreadsheet of the East region's quarterly sales targets per Territory Sales Manager being typed in by hand, cell by cell" width="1324" height="404" loading="lazy" decoding="async">
+        </figure>
+      </section>
+
+      <div class="cs-quote"><p>DRL needed a modernized way to track standing, quota, and achievements within the sales org, in a way that would scale as the company grew.</p></div>
+
+      <section class="cs-section" aria-labelledby="constraints">
+        <h2 class="cs-h" id="constraints">Constraints</h2>
+        <ol class="srx-constraints">
+          <li><mark>The platform, Salesforce.</mark> I had to build a solution that would live within Salesforce, and thus adopted its information architecture and base components.</li>
+          <li><mark>I lacked a distinct understanding of the Sales process</mark> and therefore had to do some research to figure out a couple of key items.</li>
+        </ol>
+        <ul class="srx-chips">
+          <li>What are the key data points that a salesperson needs?</li>
+          <li>What is the average sales process like? What stages exist?</li>
+          <li>Where did sales team members find themselves slowed down or stuck?</li>
+        </ul>
+      </section>
+
+      <section class="cs-section" aria-labelledby="research">
+        <h2 class="cs-h" id="research">Research</h2>
+        <p>To get my questions answered, I enlisted the help of our Regional Sales Managers who were able to walk me through their complex process. This process revealed that there were two core personas I had to target while trying to solve this problem.</p>
+        <div class="cs-grid srx-personas">
+          <figure>
+            <img src="assets/img/srx/jim-henderson.webp" alt="Persona: Jim Henderson, RSM. Background: Jim is a Regional Sales Manager who wants a simpler experience in which he can understand, break down, and analyze the overall sales performance of his division while also making broad changes to quotas and budgets. Points of significance: wants to automate setting sales quotas for his team; doesn’t have much time to be micromanaging his team; finds there are several tedious tasks that could be more efficient." width="1936" height="1016" loading="lazy" decoding="async">
+          </figure>
+          <figure>
+            <img src="assets/img/srx/brenda-lee.webp" alt="Persona: Brenda Lee, TSM. Background: Brenda is a Territory Sales Manager that spends a lot of time on the go making sales and noting meetings in Excel. She wants to actively know where she falls on her target sale value and wants new ways to drive her sales eagerness. Points of significance: strives for better visibility of her achievements; wishes she could easily note down all her sales data somewhere; riddled with stress over making sure she hits her sales quota." width="1936" height="1016" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="goal">
+        <h2 class="cs-h" id="goal">Goal definition</h2>
+        <p class="cs-text--full">First, we had to set our goal and ask what is it that we were trying to achieve by solving this problem for these two personas.</p>
+        <ul class="cs-cards srx-goals">
+          <li class="cs-card">Enable Regional Sales Managers and policymakers to approve targets and quotas</li>
+          <li class="cs-card">Enable Territory Sales Managers to consume the Sales data themselves, and automate the tracking process</li>
+        </ul>
+      </section>
+
+      <section class="cs-section" aria-labelledby="ideation">
+        <h2 class="cs-h" id="ideation">Ideation</h2>
+        <p class="cs-text--full">I wanted to know exactly where the friction points lay within the user journey, which would help inform the solution.</p>
+        <figure class="cs-figure srx-journey">
+          <img src="assets/img/srx/user-journey.webp" alt="User journey of a salesperson: given a sales target, check progress over phone with RSMs, need to make a sale, travel and meet clients, log the meeting in Salesforce, log possible sale in Excel, report sale to RSM over phone, continue to make sales. Pain points note that calling the boss is the only way to know their standing, the system often lags, and there are no constant progress updates." width="2400" height="714" loading="lazy" decoding="async">
+        </figure>
+        <p class="srx-callout"><strong>Insight:</strong> The salesperson is <mark>finding a lot of friction within the final stages of their user journey</mark>, particularly when they are logging their interactions within Excel.</p>
+        <p class="srx-callout"><strong>Action:</strong> This led to my initial idea which was to <mark>unify Salesforce and Excel to create a dashboard for logging and viewing sales metrics</mark> on SalesForce</p>
+        <p class="cs-text--full srx-gap-40">Our findings helped to identify features that would be beneficial to the users' needs.</p>
+        <ul class="cs-cards srx-features">
+          <li class="cs-card">
+            <h3>Progress metric</h3>
+            <p>A Territory Sales Manager wants to know how many planned meetings are upcoming, and how many negotiations they are currently in</p>
+          </li>
+          <li class="cs-card">
+            <h3>Results metric</h3>
+            <p>A territory sales manager wants to know what they have already accomplished, and what revenue markers they have hit</p>
+          </li>
+          <li class="cs-card">
+            <h3>Leaderboard</h3>
+            <p>Regional Sales Managers aimed to foster healthy competition among Territory Sales Managers, to build motivation and drive sales performance</p>
+          </li>
+          <li class="cs-card">
+            <h3>Overall achieved targets</h3>
+            <p>The territory sales managers wanted to see their achieved sales in real time</p>
+          </li>
+        </ul>
+        <p class="cs-text--full srx-gap-40">I plotted these on Salesforce and used this as an initial idea that I brought to higher fidelity.</p>
+        <figure class="cs-figure srx-gap-32">
+          <img src="assets/img/srx/dashboard-chart.webp" alt="Grey wireframe of a Salesforce Sales Dashboard with Progress Metrics and Results Metrics counters, a Leaderboard of percentage achieved toward target, and an Achieved Target bar chart by month" width="2400" height="1495" loading="lazy" decoding="async">
+        </figure>
+      </section>
+
+      <section class="cs-section" aria-labelledby="testing">
+        <h2 class="cs-h" id="testing">User testing 1</h2>
+        <p>To validate my ideas, I conducted a set of user testing with the Regional Sales Managers to help understand if this was meeting the team's needs.</p>
+        <p>Testing our ideas showed that we were getting there, but <mark>our regional managers craved more granularity</mark>. They wanted these dashboards to be more interactive, and less of a static snapshot that could be summed up in a weekly email digest</p>
+        <ul class="srx-asks">
+          <li><strong>Key Ask 1:</strong> More interactiveness in data, and better visualizations.</li>
+          <li><strong>Key Ask 2:</strong> Wanted to be able to manipulate the data and add a sortable function</li>
+        </ul>
+      </section>
+
+      <section class="cs-section" aria-labelledby="iteration">
+        <h2 class="cs-h" id="iteration">Iteration and Pivot: new individual pages</h2>
+        <p class="cs-text--full">Based on my insights, I <mark>split each feature into individual pages</mark>, providing details on their functionalities and outlining the intended goals they seek to achieve.</p>
+        <p class="cs-text--full">I <mark>conducted user tests</mark> on these pages to get feedback and validate our concepts.</p>
+
+        <div class="srx-concept">
+          <h3 class="cs-caption">Achievement summary page</h3>
+          <div class="srx-notes">
+            <p><strong>What:</strong> Sections out different regions by <mark>target quotas</mark> and achieved sales per quarter.</p>
+            <p><strong>Why:</strong> A <mark>regional sales manager</mark> can track team’s achievements, and can create <mark>unique sales plans</mark> based on that</p>
+          </div>
+          <figure>
+            <img src="assets/img/srx/achievement-summary-lo-fi.webp" alt="Lo-fi Achievement Summary page in Salesforce: West and East SRx team tables listing each team member's target and achieved sales, with a quarter filter and a Leaderboard button" width="2400" height="1348" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <div class="srx-concept">
+          <h3 class="cs-caption">Leaderboard page</h3>
+          <div class="srx-notes">
+            <p><strong>What:</strong> Displaying the <mark>performance of Territory Sales Managers</mark> relative to their peers on a Leaderboard</p>
+            <p><strong>Why:</strong> Act as a way for Territory Sales Managers to <mark>track their performance amongst their peers</mark> and <mark>create a better Sales culture</mark> the Regional Sales Managers were looking for</p>
+          </div>
+          <figure>
+            <img src="assets/img/srx/leaderboard-pg-lo-fi.webp" alt="Lo-fi Leaderboard page: a podium with the top three Territory Sales Managers above a ranked table of target, achieved and percentage achieved toward target, filterable by region and period" width="2400" height="1707" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <div class="srx-concept">
+          <h3 class="cs-caption">Target Value Creator Page</h3>
+          <div class="srx-notes">
+            <p><strong>What:</strong> This is used by regional sales managers to <mark>set quotas for territory managers</mark> to hit.</p>
+            <p><strong>Why:</strong> The regional manager would have a <mark>simple method of setting targets and getting them approved</mark> by higher-ups.</p>
+          </div>
+          <figure>
+            <img src="assets/img/srx/target-value-creator-lo-fi.webp" alt="Lo-fi Target Value Creator page: region, financial year and annual target inputs, a Target Value summary, and an editable table of quarterly targets per Territorial Sales Manager with a Submit For Approval button" width="2400" height="1707" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="final">
+        <h2 class="cs-h" id="final">Final designs</h2>
+        <p class="cs-text--full">This led me to iterate on my solutions and tighten up my visual designs. I wanted to focus on their pieces of feedback but also to run this by engineering to get LOE.</p>
+
+        <h3 class="cs-caption srx-screen-title">Target Value Page</h3>
+        <figure class="cs-figure srx-screen srx-screen--narrow">
+          <img src="assets/img/srx/target-value-page.webp" alt="Annotated Target Setting tab: users can start creating a new annual target, and current and previous accepted targets, pending targets and drafts are listed so RSMs can easily review them" width="2400" height="1368" loading="lazy" decoding="async">
+        </figure>
+        <figure class="cs-figure srx-screen">
+          <img src="assets/img/srx/target-value-settings-page.webp" alt="Annotated FY 24 Version B target screen: a direct approval flow shows the status from initiator to SRx head to marketing head, and each RSM can edit and enter target values for the other region on the same page" width="2400" height="1147" loading="lazy" decoding="async">
+        </figure>
+
+        <h3 class="cs-caption srx-screen-title">Leaderboard Page</h3>
+        <figure class="cs-figure srx-screen">
+          <img src="assets/img/srx/leadboard-page.webp" alt="Annotated FY 24 Quarter 2 Leaderboard: National, West and East podiums with ranked tables give users a quick sense of their peers' progress, a legend explains the colour codes, and clicking a bar opens the sales details behind the percentage" width="2400" height="1147" loading="lazy" decoding="async">
+        </figure>
+
+        <h3 class="cs-caption srx-screen-title">Achievement Summary Page</h3>
+        <figure class="cs-figure srx-screen">
+          <img src="assets/img/srx/achievement-summary-page.webp" alt="Annotated Achievement Summary: quarterly target, achieved and percentage tables for each SRx team, with achieved percentages colour coded by status, a clear colour legend, and a neutral header colour for a cleaner view" width="2400" height="1250" loading="lazy" decoding="async">
+        </figure>
+      </section>
+
+      <section class="cs-section" aria-labelledby="prototype">
+        <h2 class="cs-h" id="prototype">Final prototype</h2>
+        <figure class="cs-figure srx-prototype">
+          <video data-autoplay src="assets/video/srx-demo.mp4" poster="assets/video/srx-demo-poster.webp" width="1730" height="1080" muted loop playsinline preload="none" aria-label="Prototype walkthrough of the SRx Achievement Tracker, starting on the FY 24 Quarter 2 leaderboard with national, West and East rankings"></video>
+        </figure>
+      </section>
+
+      <section class="cs-section" aria-labelledby="impact">
+        <h2 class="cs-h" id="impact">Impact</h2>
+        <ul class="cs-stats srx-stats">
+          <li><strong>30%</strong> <span>Less errors</span></li>
+          <li><strong>100%</strong> <span>User satisfaction</span></li>
+          <li><strong>88%</strong> <span>Decrease in approval time</span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Hilya Khalil 2026</p>
+    <ul>
+      <li><a href="mailto:hilyaadil@gmail.com">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/hilyakhalil/" target="_blank" rel="noopener">Linkedin</a></li>
+      <li><a href="#top">Back to the top</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
