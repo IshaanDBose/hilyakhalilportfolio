@@ -17,6 +17,7 @@ It is maintained by two non-specialists, so keep it simple. Read README.md for t
 ## Workflow
 - Preview: `python3 tools/serve.py` (port 8080; mimics GitHub Pages' extensionless URLs).
 - Check visuals: `python3 tools/compare.py <page> --width 1440 --width 390`, then look at `tools/out/compare/`.
+- Run `node tools/check.js` (with the server running) before committing; it must report "All checks passed".
 - Check at 1440px and 390px; there must be no horizontal scrolling on phones.
 - When adding a page, also update the Work grid in `index.html` and `sitemap.xml`.
 - If the homepage changes noticeably, regenerate the share image with `node tools/og-image.js`.

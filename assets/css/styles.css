@@ -162,6 +162,7 @@ button { font: inherit; color: inherit; }
 .hero-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 32px; }
 .hero-intro p { max-width: 632px; }
 .hero-intro strong { font-weight: 500; }
+.hero-intro a { text-decoration: underline; text-underline-offset: 3px; }
 
 .work { padding-top: 128px; }
 .work h2 { font-weight: 500; font-size: 48px; line-height: 1.2; color: var(--ink); }
@@ -224,6 +225,7 @@ button { font: inherit; color: inherit; }
     <footer class="site-footer">…</footer>
 */
 .page-case { --footer-width: var(--content); color: var(--ink); }
+.page-case main { overflow-x: clip; } /* full-bleed panels never cause sideways scroll */
 
 .cs-cover {
   background: var(--accent);
@@ -232,7 +234,8 @@ button { font: inherit; color: inherit; }
   padding: 0 var(--gutter);
 }
 .cs-title {
-  position: relative; z-index: 1; margin-bottom: -13px; /* sits slightly over the wave, as on the original */
+  position: relative; z-index: 1;
+  margin-bottom: -13px; /* sits slightly over the wave, as on the original */
   font-weight: 600; font-size: 72px; line-height: 1.6; color: var(--ink-strong);
   text-align: center;
 }
@@ -293,7 +296,7 @@ mark, .hl { background: var(--accent); color: inherit; padding: 0 1px; }
 .cs-quote p { font: inherit; }
 
 /* Grey callout cards (problems, challenges, insights) */
-.cs-cards { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.cs-cards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
 .cs-card { background: var(--surface); border-radius: 12px; padding: 24px; font-size: 16px; line-height: 1.6; }
 .cs-card h3 { font-weight: 600; font-size: 20px; line-height: 1.6; color: var(--ink-strong); margin-bottom: 8px; }
 
@@ -322,6 +325,10 @@ mark, .hl { background: var(--accent); color: inherit; padding: 0 1px; }
 .carousel-btn[data-dir="-1"] { left: 8px; }
 .carousel-btn[data-dir="1"] { right: 8px; }
 .carousel-btn:disabled { opacity: .3; cursor: default; }
+.carousel-dots { position: absolute; left: 50%; bottom: 16px; translate: -50% 0; display: flex; gap: 2px; }
+.carousel-dots button { width: 14px; height: 14px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.carousel-dots button::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .25; }
+.carousel-dots button[aria-current]::before { opacity: 1; }
 .carousel-btn svg { width: 24px; height: 24px; }
 
 /* Zoomable images open in a lightbox (main.js adds this to case-study figures) */
@@ -338,8 +345,9 @@ mark, .hl { background: var(--accent); color: inherit; padding: 0 1px; }
 }
 
 @media (max-width: 999.98px) {
-  .cs-cover { height: 170px; padding-bottom: 8px; }
-  .cs-title { font-size: 40px; }
+  /* Cover grows so long titles can wrap below the nav */
+  .cs-cover { height: auto; min-height: 170px; padding-top: 96px; padding-bottom: 8px; }
+  .cs-title { font-size: 40px; line-height: 1.2; margin-bottom: 0; }
   .cs-section { margin-top: 64px; }
   .cs-section:first-child { margin-top: 48px; }
   .cs-section > p, .cs-text, .cs-subhead + p { font-size: 18px; }

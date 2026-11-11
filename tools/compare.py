@@ -29,7 +29,10 @@ subprocess.run(['node', os.path.join(ROOT, 'tools/screenshot.js'), a.base, local
 
 for page in a.pages:
     for w in widths:
-        ref = Image.open(os.path.join(ROOT, 'reference', f'{page}-{w}.png')).convert('RGB')
+        ref_path = os.path.join(ROOT, 'reference', f'{page}-{w}.webp')
+        if not os.path.exists(ref_path):
+            ref_path = ref_path[:-5] + '.png'
+        ref = Image.open(ref_path).convert('RGB')
         loc = Image.open(os.path.join(local, f'{page}-{w}.png')).convert('RGB')
         gap = 40
         img = Image.new('RGB', (ref.width + loc.width + gap, max(ref.height, loc.height) + 30), 'white')

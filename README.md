@@ -54,9 +54,18 @@ python3 -c "from PIL import Image; im=Image.open('in.png'); im.thumbnail((2400, 
 
 **Change colours or fonts.** These are defined once, at the top of `assets/css/styles.css` (section 2, "Tokens").
 
+## Before publishing
+
+```sh
+python3 tools/serve.py &
+node tools/check.js
+```
+
+This loads every page at desktop and phone widths and reports JavaScript errors, missing images, broken links, sideways scrolling on phones, and missing alt text.
+
 ## Checking changes against the original
 
-`reference/` holds full-page screenshots of the original Framer site at 1440px, 1100px and 390px widths.
+`reference/` holds full-page screenshots (WebP) of the original Framer site at 1440px, 1100px and 390px widths, captured in November 2026.
 To capture the local site and place it side by side with the reference:
 
 ```sh

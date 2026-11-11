@@ -59,17 +59,37 @@ if (zoomables.length && typeof HTMLDialogElement === 'function') {
 }
 
 // 4. Carousels ---------------------------------------------------------------
+// Add data-dots to the carousel element to show one dot per slide.
 document.querySelectorAll('[data-carousel]').forEach(carousel => {
   const track = carousel.querySelector('.carousel-track');
   const buttons = carousel.querySelectorAll('.carousel-btn');
+  const slides = [...track.children];
+  let dots = [];
+  if (carousel.hasAttribute('data-dots')) {
+    const nav = document.createElement('div');
+    nav.className = 'carousel-dots';
+    dots = slides.map((slide, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Show slide ${i + 1} of ${slides.length}`);
+      dot.addEventListener('click', () => track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: 'smooth' }));
+      nav.append(dot);
+      return dot;
+    });
+    carousel.append(nav);
+  }
+  // Distance from one slide to the next (slide width + gap)
+  const step = () => slides.length > 1 ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth;
   const update = () => {
     const max = track.scrollWidth - track.clientWidth - 2;
     buttons.forEach(b => {
       b.disabled = b.dataset.dir === '-1' ? track.scrollLeft <= 2 : track.scrollLeft >= max;
     });
+    const current = Math.round(track.scrollLeft / step());
+    dots.forEach((d, i) => d.toggleAttribute('aria-current', i === current));
   };
   buttons.forEach(b => b.addEventListener('click', () => {
-    track.scrollBy({ left: Number(b.dataset.dir) * track.clientWidth, behavior: 'smooth' });
+    track.scrollBy({ left: Number(b.dataset.dir) * step(), behavior: 'smooth' });
   }));
   track.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);

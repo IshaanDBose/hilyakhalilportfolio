@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marketplace v2 — Hilya Khalil</title>
+  <meta name="description" content="Rebuilding Nabis’s cannabis wholesale Marketplace from the ground up: faster, more accessible and scalable brand, checkout and payables pages for the New York launch.">
+  <link rel="canonical" href="https://www.hilya.me/mp-v2">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Marketplace v2 — Hilya Khalil">
+  <meta property="og:description" content="Rebuilding Nabis’s cannabis wholesale Marketplace from the ground up: faster, more accessible and scalable brand, checkout and payables pages for the New York launch.">
+  <meta property="og:url" content="https://www.hilya.me/mp-v2">
+  <meta property="og:image" content="https://www.hilya.me/assets/img/home/card-marketplace.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/alcyone-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/alcyone-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/pages/mp-v2.css">
+  <script src="assets/js/analytics.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/pages/mp-v2.js" defer></script>
+</head>
+<!-- --accent is the project colour: var(--pink) | var(--blue) | var(--green) | var(--orange) -->
+<body id="top" class="page-case" style="--accent: var(--blue)">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main">
+      <a href="./">Home</a>
+      <a href="about">About me</a>
+      <a href="https://drive.google.com/file/d/14Z7RIZ9NV_spaWXV6bZhX1Zu1Br9sVu4/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="cs-cover">
+      <h1 class="cs-title">Marketplace renewed</h1>
+    </div>
+    <!-- Wave under the cover. Any path works; keep viewBox 0 0 1440 99. -->
+    <svg class="cs-wave" viewBox="0 0 1440 99" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 95.4 120 97.1C240 99 480 102.3 720 90.1 960 77.8 1200 49.3 1320 35.3L1440 21.2V0H0Z"/>
+    </svg>
+
+    <div class="cs-body">
+      <section class="cs-section" aria-labelledby="context">
+        <h2 class="cs-h" id="context">Context</h2>
+        <p class="cs-text cs-text--full">Nabis is a cannabis wholesale platform connecting Brands and Retailers. However, the platform’s existing Marketplace had accumulated years of technical debt that made it increasingly painful to use.</p>
+        <p class="cs-text cs-text--full">With an expansion into New York on the horizon, patching up the old system was no longer a viable path forward. This became our opportunity to <mark><strong>rebuild the Marketplace from the ground up</strong></mark>: faster, more accessible, and scalable.</p>
+        <dl class="cs-meta">
+          <div><dt>Time duration</dt><dd>Q2 2025 - Q2 2026</dd></div>
+          <div><dt>Contribution</dt><dd>Product strategy<br>User research<br>Product design</dd></div>
+          <div><dt>Team</dt><dd>1 x Product manager<br>2 x Product designer<br>4 x Software engineer</dd></div>
+        </dl>
+      </section>
+
+      <!-- Near full-bleed blue panel with the old brand page sitting on its bottom edge -->
+      <figure class="cs-figure mp-hero">
+        <img src="assets/img/mp-v2/old-pal-crop.webp" alt="The old Nabis Marketplace brand page for Old Pal: a large hero photo above the brand description and a row of product cards" width="2382" height="1678" loading="lazy" decoding="async">
+      </figure>
+
+      <section class="cs-section" aria-labelledby="problem">
+        <h2 class="cs-h" id="problem">Problem</h2>
+        <p class="cs-text cs-text--full">Retailers were struggling to browse products, manage payments, and complete orders without running into dead ends. The experience was <mark><strong>slow, unintuitive, and unreliable</strong></mark> enough that it consistently prompted customers to raise issues. With New York expansion on the horizon, we couldn't afford to bring those same friction points into a brand-new market.</p>
+      </section>
+
+      <section class="cs-section" aria-labelledby="business-impact">
+        <h2 class="cs-h" id="business-impact">Business impact</h2>
+        <p class="cs-text cs-text--full">Open the New York market with a platform retailers would actually want to use.</p>
+        <ul class="cs-grid mp-goals">
+          <li>
+            <img src="assets/img/mp-v2/building-blocks-icon.webp" alt="" width="48" height="42" loading="lazy" decoding="async">
+            <p>Replace legacy codebase with a <mark><strong>scalable foundation</strong></mark> built for growth</p>
+          </li>
+          <li>
+            <img src="assets/img/mp-v2/churn-icon.webp" alt="" width="48" height="44" loading="lazy" decoding="async">
+            <p><mark><strong>Reduce churn</strong></mark> by making the experience worth coming back to</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="cs-section mp-audit-section" aria-labelledby="audit">
+        <h2 class="cs-h" id="audit">Audit</h2>
+        <p>I audited our workflows through user interviews, NPS feedback, and Jira tickets and then ranked the pages on issues x impact.</p>
+        <ul class="cs-grid mp-audit" style="--cols: 3">
+          <li>
+            <h3>Brand</h3>
+            <figure>
+              <img src="assets/img/mp-v2/old-brand-page-img.webp" alt="Old brand page with a collage banner, long brand description and product cards below the fold" width="2380" height="2356" loading="lazy" decoding="async">
+            </figure>
+            <p><mark><strong>Too many steps</strong></mark> to find and add products, slowing down what should be a quick browsing session.</p>
+          </li>
+          <li>
+            <h3>Checkout</h3>
+            <figure>
+              <img src="assets/img/mp-v2/old-checkout-pic.webp" alt="Old checkout page with a long form for recipient, license and tax information" width="2400" height="2150" loading="lazy" decoding="async">
+            </figure>
+            <p>A <mark><strong>long, repetitive form</strong></mark> created unnecessary drop-off at the most critical moment in the flow.</p>
+          </li>
+          <li>
+            <h3>Payables</h3>
+            <figure>
+              <img src="assets/img/mp-v2/old-payables.webp" alt="Old accounts payable page with a stack of coloured alert banners above a dense invoice table" width="2400" height="2150" loading="lazy" decoding="async">
+            </figure>
+            <p><mark><strong>Too much information without hierarchy</strong></mark>, making it hard to track and pay what they owe.</p>
+          </li>
+        </ul>
+      </section>
+
+      <div class="cs-quote mp-quote"><p>How can we <mark>reimagine the Marketplace experience</mark> so that retailers can complete their core workflows with confidence and ease</p></div>
+
+      <section class="cs-section" aria-labelledby="solution">
+        <h2 class="cs-h" id="solution">Solution</h2>
+        <p class="cs-text cs-text--full">Open the New York market with a platform retailers would actually want to use.</p>
+
+        <!-- Before/after sliders: the old screen is clipped to the left of --pos,
+             the new one shows to the right. mp-v2.js moves --pos from the range input. -->
+        <h3 class="mp-caption">Brand page</h3>
+        <figure class="mp-compare mp-compare--brand" data-compare>
+          <img class="mp-compare-after" src="assets/img/mp-v2/new-brand-page.webp" alt="New brand page: a full-width brand banner, short description with contact links, and a clean grid of product cards with one-click Add buttons" width="2400" height="2376" loading="lazy" decoding="async" data-no-zoom>
+          <img class="mp-compare-before" src="assets/img/mp-v2/old-brand-page-img.webp" alt="Old brand page" width="2380" height="2356" loading="lazy" decoding="async" data-no-zoom>
+          <input class="mp-compare-range" type="range" min="0" max="100" value="33" aria-label="Compare old and new brand page: slide left for the new design, right for the old one">
+          <span class="mp-compare-handle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18l6-6-6-6M7 6l-6 6 6 6"/></svg>
+          </span>
+        </figure>
+
+        <ul class="cs-grid mp-features">
+          <li>
+            <h4>Quick add</h4>
+            <p>One click to add products</p>
+            <video data-autoplay src="assets/video/mp-v2-clip-1.mp4" poster="assets/video/mp-v2-clip-1-poster.webp" width="394" height="100" muted loop playsinline preload="none" aria-label="Clicking the Add button on a product card adds it to the cart in one step"></video>
+          </li>
+          <li>
+            <h4>Pinned filters</h4>
+            <p>Saving filters reused</p>
+            <video data-autoplay src="assets/video/mp-v2-clip-2.mp4" poster="assets/video/mp-v2-clip-2-poster.webp" width="914" height="336" muted loop playsinline preload="none" aria-label="Filters chosen once stay pinned in the toolbar for the next visit"></video>
+          </li>
+        </ul>
+
+        <h3 class="mp-caption">Payables page</h3>
+        <figure class="mp-compare" data-compare>
+          <img class="mp-compare-after" src="assets/img/mp-v2/new-payables-1.webp" alt="New payables page: three summary cards for overdue, outstanding and upcoming payments above a single invoice table with clear status tags" width="2400" height="1668" loading="lazy" decoding="async" data-no-zoom>
+          <img class="mp-compare-before" src="assets/img/mp-v2/new-payables-2.webp" alt="Old accounts payable page" width="2400" height="1668" loading="lazy" decoding="async" data-no-zoom>
+          <input class="mp-compare-range" type="range" min="0" max="100" value="33" aria-label="Compare old and new payables page: slide left for the new design, right for the old one">
+          <span class="mp-compare-handle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18l6-6-6-6M7 6l-6 6 6 6"/></svg>
+          </span>
+        </figure>
+
+        <h3 class="mp-caption">Checkout page</h3>
+        <figure class="mp-compare" data-compare>
+          <img class="mp-compare-after" src="assets/img/mp-v2/new-checkout-1.webp" alt="New checkout page: delivery details and a single Place order button on the left, an editable cart grouped by brand on the right" width="2400" height="1665" loading="lazy" decoding="async" data-no-zoom>
+          <img class="mp-compare-before" src="assets/img/mp-v2/new-checkout-2.webp" alt="Old checkout page" width="2400" height="1668" loading="lazy" decoding="async" data-no-zoom>
+          <input class="mp-compare-range" type="range" min="0" max="100" value="33" aria-label="Compare old and new checkout page: slide left for the new design, right for the old one">
+          <span class="mp-compare-handle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18l6-6-6-6M7 6l-6 6 6 6"/></svg>
+          </span>
+        </figure>
+      </section>
+
+      <section class="cs-section" aria-labelledby="impact">
+        <h2 class="cs-h" id="impact">Impact</h2>
+        <p class="cs-text cs-text--full">After this to product I was able to collect data pieces from Retool dashboards and surveys.</p>
+        <ul class="cs-stats mp-stats">
+          <li><strong>13M</strong><span>Net growth merchandise value</span></li>
+          <li><strong>45% <small>— goal 20%</small></strong><span>Active retailer percentage</span></li>
+          <li><strong>85.7% <small>— goal 70%</small></strong><span>Brand adoption</span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Hilya Khalil 2026</p>
+    <ul>
+      <li><a href="mailto:hilyaadil@gmail.com">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/hilyakhalil/" target="_blank" rel="noopener">Linkedin</a></li>
+      <li><a href="#top">Back to the top</a></li>
+    </ul>
+  </footer>
+</body>
+</html>

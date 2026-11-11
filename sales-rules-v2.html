@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sales Rules — Hilya Khalil</title>
+  <meta name="description" content="Redesigning Nabis’s Sales Rules tool so cannabis brands can set accurate special pricing for retailers quickly — from user interviews to a launched tool with 90% user satisfaction.">
+  <link rel="canonical" href="https://www.hilya.me/sales-rules-v2">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Sales Rules — Hilya Khalil">
+  <meta property="og:description" content="Redesigning Nabis’s Sales Rules tool so cannabis brands can set accurate special pricing for retailers quickly — from user interviews to a launched tool with 90% user satisfaction.">
+  <meta property="og:url" content="https://www.hilya.me/sales-rules-v2">
+  <meta property="og:image" content="https://www.hilya.me/assets/img/home/card-sales-rules.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/alcyone-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/alcyone-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/pages/sales-rules-v2.css">
+  <script src="assets/js/analytics.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<!-- --accent is the project colour: var(--pink) | var(--blue) | var(--green) | var(--orange) -->
+<body id="top" class="page-case" style="--accent: var(--pink)">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main">
+      <a href="./">Home</a>
+      <a href="about">About me</a>
+      <a href="https://drive.google.com/file/d/14Z7RIZ9NV_spaWXV6bZhX1Zu1Br9sVu4/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="cs-cover">
+      <h1 class="cs-title">Sales rules</h1>
+    </div>
+    <!-- Wave under the cover. Any path works; keep viewBox 0 0 1440 99. -->
+    <svg class="cs-wave" viewBox="0 0 1440 99" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 19.9 48 31.5C96 43.3 192 66.3 288 79.7 384 93.1 480 96.2 576 98 672 99.6 768 99.6 864 94.6 960 89.7 1056 79.7 1152 63.1 1248 46.4 1344 23.3 1392 11.6L1440 0H0Z"/>
+    </svg>
+
+    <div class="cs-body">
+      <section class="cs-section" aria-labelledby="context">
+        <h2 class="cs-h" id="context">Context</h2>
+        <p class="cs-text--full">Nabis is a cannabis wholesale platform that connects brands with dispensaries through tech-enabled distribution and logistics.</p>
+        <p class="cs-text--full">Sales Rules is a tool that allows Brands to set special pricing for specific retailers, either to reward top customers or penalize those in poor standing. Despite its importance, <mark><strong>the feature had long been one of the most cited pain points in our Nabis app</strong></mark> with outdated, inflexible functionality that created inefficiencies for both Brands and Retailers.</p>
+        <dl class="cs-meta">
+          <div><dt>Time duration</dt><dd>Q4 2024 - Q1 2025</dd></div>
+          <div><dt>Contribution</dt><dd>Product strategy<br>User research<br>Product design</dd></div>
+          <div><dt>Team</dt><dd>1 x Product manager / designer<br>1 x Software engineer</dd></div>
+        </dl>
+      </section>
+
+      <!-- Full-bleed pink band behind the cover mockup -->
+      <figure class="cs-figure sr-band">
+        <img src="assets/img/sales-rules-v2/cover.webp" alt="The redesigned New sales rule page with the Select products modal open over it" width="2055" height="1243" loading="lazy" decoding="async">
+      </figure>
+
+      <section class="cs-section" aria-labelledby="problem">
+        <h2 class="cs-h" id="problem">Problem</h2>
+        <p class="cs-text--full">Nabis’s wholesaling platform facilitates Brands (manufacturers) selling their products to Retailers (dispensaries). However, a heavily flawed Sales Rules tool <mark><strong>prevented Brands from setting up special pricing</strong></mark> from their standard wholesales rates.</p>
+        <ul class="cs-cards sr-problems">
+          <li class="cs-card">Extremely inefficient and difficult to use</li>
+          <li class="cs-card">Errors resulting in lost of trust with Nabis</li>
+        </ul>
+
+        <div class="sr-old-way">
+          <figure class="cs-figure">
+            <video data-autoplay src="assets/video/sales-rules-old-way.mp4" poster="assets/video/sales-rules-old-way-poster.webp" muted loop playsinline preload="none" width="1920" height="906" aria-label="Screen recording of the old tool: setting one special price means clicking through several disconnected inventory pages"></video>
+          </figure>
+          <div class="sr-old-way-text">
+            <h3>The OLD way.</h3>
+            <p>Setting a special price for <em>one</em> retailer on <em>one</em> product took <mark><strong>over a minute</strong></mark> of clicking through disconnected pages.</p>
+            <p>Now scale this to hundreds of retailers for hundreds of products..</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="business-impact">
+        <h2 class="cs-h" id="business-impact">Business impact</h2>
+        <p class="cs-text--full">Improving Sales Rules would help <mark><strong>restore trust in the 10+ million dollar Nabis Marketplace and drive more order volume</strong></mark> through the Nabis app.</p>
+      </section>
+
+      <section class="cs-section" aria-labelledby="research">
+        <h2 class="cs-h" id="research">Research</h2>
+        <p>To build context around Sales Rules, I first connected with internal customer experience teammates and reviewed Jira tickets. However, to gain a deeper understanding, I conducted <mark><strong>Brand user interviews</strong> </mark>that helped uncover key opportunities to guide my solution ideation.</p>
+
+        <div class="sr-research">
+          <div class="sr-board">
+            <p class="sr-board-label">Scroll left to right</p>
+            <div class="sr-board-scroll" tabindex="0" role="region" aria-label="Affinity map from the Brand user interviews (scrolls horizontally)">
+              <figure>
+                <img src="assets/img/sales-rules-v2/research-board.webp" alt="Affinity map of sticky notes from the interviews, grouped into themes such as difficult management of Sales Rules, bulk and automation, and time and effort" width="2400" height="812" loading="lazy" decoding="async" data-no-zoom>
+              </figure>
+            </div>
+          </div>
+
+          <ul class="sr-insights">
+            <li>
+              <h3><img src="assets/img/sales-rules-v2/messy-icon.webp" alt="" width="17" height="19">Inaccurate pricing</h3>
+              <p>The error-prone Sales Rules tool often resulted in Retailers seeing incorrect prices, thus requiring frequent manual corrections. Retailers’ trust in Nabis weakened as they moved to working with Brand directly.</p>
+            </li>
+            <li>
+              <h3><img src="assets/img/sales-rules-v2/messy-icon.webp" alt="" width="17" height="19">Excessive time required</h3>
+              <p>Creating sales rules took many hours, which led to Brands offloading the work to Nabis admins, hiring external help, or skipping special pricing on Nabis.</p>
+            </li>
+            <li>
+              <h3><img src="assets/img/sales-rules-v2/messy-icon.webp" alt="" width="17" height="19">Limited customization</h3>
+              <p>Brands could only set sales rules per product and apply them to entire Retailer Groups, making it hard to offer custom pricing to individual retailers.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="cs-quote"><p>How can we design a <mark>simpler</mark> and <mark>more efficient</mark> Sales Rules tool for Brand users that ensures accurate pricing on the Nabis Marketplace so that we can <mark>regain Retailer users’ trust</mark> in the platform?</p></div>
+
+      <section class="cs-section" aria-labelledby="challenges">
+        <h2 class="cs-h" id="challenges">Design Challenges and Solutions</h2>
+        <p class="cs-text--full">What I learned from user testing and how it shaped my final design.</p>
+
+        <div class="sr-pair">
+          <div class="sr-challenge">
+            <h3>Challenge 1: Overwhelming Interface Layout</h3>
+            <p>Users found the Retailer and Product selection sections <mark><strong>overwhelming</strong></mark>, which led to visual fatigue.</p>
+            <figure>
+              <img src="assets/img/sales-rules-v2/sr-product-selector-section-before.webp" alt="Before: the product selector shown inline on the page, with filters, search and a long product list" width="1424" height="998" loading="lazy" decoding="async">
+            </figure>
+          </div>
+          <div class="sr-solution">
+            <h3>Solution 1: Cleaner Layout with Modals</h3>
+            <p>Redesigned the selectors to open within modals, creating a cleaner layout with more breathing room. This made the interface feel more spacious and <mark><strong>easier to navigate</strong></mark>.</p>
+            <figure>
+              <img src="assets/img/sales-rules-v2/select-products-modal.webp" alt="After: the Select products modal, with search, category breadcrumbs and a checklist of products" width="1424" height="934" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </div>
+
+        <div class="sr-pair">
+          <div class="sr-challenge">
+            <h3>Challenge 2: Repetitive Product Configuration</h3>
+            <p>Updating pricing and Marketplace settings for each product individually was <mark><strong>slow</strong></mark> and <mark><strong>repetitive</strong></mark>, especially when configurations were often identical.</p>
+            <figure>
+              <img src="assets/img/sales-rules-v2/product-editor-old.webp" alt="Before: a product table where price and Marketplace visibility are set row by row" width="1424" height="448" loading="lazy" decoding="async">
+            </figure>
+          </div>
+          <div class="sr-solution">
+            <h3>Solution 2: Bulk Editing for Efficiency</h3>
+            <p>I implemented bulk editing for products, allowing users to apply settings to multiple items at once — <mark><strong>improving efficiency</strong></mark> without sacrificing control.</p>
+            <figure>
+              <img src="assets/img/sales-rules-v2/product-editor-after.webp" alt="After: the product table with an Additional product settings panel that applies Marketplace and global price settings to all products at once" width="1424" height="858" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </div>
+
+        <div class="sr-pair">
+          <div class="sr-challenge">
+            <h3>Challenge 3: Confusing Sales Rule Conflicts</h3>
+            <p>Users struggled to understand and resolve conflicts between sales rules. This slowed them down and <mark><strong>caused confusion</strong></mark>.</p>
+            <figure>
+              <img src="assets/img/sales-rules-v2/resolve-conflicts-before.webp" alt="Before: a Review and resolve conflicts dialog asking users to pick a resolution for each conflicting retailer and product" width="1808" height="824" loading="lazy" decoding="async">
+            </figure>
+          </div>
+          <div class="sr-solution">
+            <h3>Solution 3: Automatic Conflict Resolution</h3>
+            <p>Simplified the workflow by automating conflict resolution. If multiple rules apply to the same product-retailer combo, the system now defaults to the rule with the lowest price—<mark><strong>no user intervention needed</strong></mark>.</p>
+            <svg class="sr-check" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.6"/>
+              <path d="m7.6 12.3 3.1 3.1 5.8-6.4"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="prototype">
+        <h2 class="cs-h" id="prototype">Final prototype</h2>
+        <figure class="cs-figure">
+          <video data-autoplay src="assets/video/sales-rules-prototype.mp4" poster="assets/video/sales-rules-prototype-poster.webp" muted loop playsinline preload="none" width="1920" height="904" aria-label="Walkthrough of the redesigned Sales rules tool: the rules list, creating a new sales rule, and selecting retailers and products in modals"></video>
+        </figure>
+      </section>
+
+      <section class="cs-section sr-impact" aria-labelledby="impact">
+        <h2 class="cs-h" id="impact">Impact</h2>
+        <p class="cs-text--full">I conducted a final round of usability testing with Brand users, distributed a post-launch survey, and analyzed live usage data using tools such as Mixpanel and Retool.</p>
+        <ul class="cs-stats">
+          <li><strong>90%</strong><span>Average Brand user satisfaction</span></li>
+          <li><strong>75%</strong><span>Increase in efficiency for key workflows</span></li>
+          <li><strong>83%</strong><span>Increase in sales rules created</span></li>
+        </ul>
+
+        <h3 class="visually-hidden" id="testimonials">What users said</h3>
+        <div class="carousel sr-testimonials" data-carousel data-dots>
+          <div class="carousel-track" tabindex="0" role="region" aria-labelledby="testimonials">
+            <figure>
+              <blockquote><p>Saves so much time and super easy to use, so overall I’m giving this new dashboard an A++ :)</p></blockquote>
+              <figcaption>— Customer</figcaption>
+            </figure>
+            <figure>
+              <blockquote><p>I just implemented a new retailer group + sales rules. What used to take 2 hours, at minimum, now takes 10 minutes.</p></blockquote>
+              <figcaption>— Aimee, Customer</figcaption>
+            </figure>
+            <figure>
+              <blockquote><p>Hilya, this is LITERALLY a dream - best feature yet, Thank you so much.</p></blockquote>
+              <figcaption>— Customer</figcaption>
+            </figure>
+            <figure>
+              <blockquote><p>This is 100 times easier to use. Thank you! It looks great.</p></blockquote>
+              <figcaption>— Andrew, Customer</figcaption>
+            </figure>
+            <figure>
+              <blockquote><p>Just wanted to let you know I demoed the new Sales Rules for the [customer name] and it was so easy to teach and easy for them to comprehend, kudos!</p></blockquote>
+              <figcaption>— Matthew, Internal employee</figcaption>
+            </figure>
+          </div>
+          <button class="carousel-btn" type="button" data-dir="-1" aria-label="Previous testimonial">
+            <svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M400-80 0-480l400-400 71 71-329 329 329 329z"/></svg>
+          </button>
+          <button class="carousel-btn" type="button" data-dir="1" aria-label="Next testimonial">
+            <svg viewBox="0 -960 960 960" aria-hidden="true"><path d="m321-80-71-71 329-329-329-329 71-71 400 400z"/></svg>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Hilya Khalil 2026</p>
+    <ul>
+      <li><a href="mailto:hilyaadil@gmail.com">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/hilyakhalil/" target="_blank" rel="noopener">Linkedin</a></li>
+      <li><a href="#top">Back to the top</a></li>
+    </ul>
+  </footer>
+</body>
+</html>

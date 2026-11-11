@@ -1,0 +1,112 @@
+/* SRx Tracker (srx.html) — page-specific layout on top of styles.css section 7. */
+
+/* Highlighted phrases are always bold on this page. */
+.cs-body mark { font-weight: 600; }
+
+/* Spacing tweaks where the original deviates from the default rhythm. */
+.cs-section > .srx-gap-40 { margin-top: 40px; }
+.srx-gap-32 { margin-top: 32px; }
+
+/* Full-width green band; the cover image sits on its bottom edge. */
+.srx-band { margin-top: 96px; padding-top: 60px; background: var(--accent); }
+.srx-band .cs-body { width: min(1040px, 100% - 2 * var(--gutter)); }
+.srx-band + .cs-body > .cs-section:first-child { margin-top: 96px; }
+
+/* Problem: three numbered pain points in a row */
+.srx-pains {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px;
+  margin-top: 64px; padding: 0; list-style: none; counter-reset: pain;
+}
+.srx-pains li {
+  display: flex; align-items: center; gap: 32px;
+  font-size: 20px; line-height: 1.6; color: var(--ink-strong);
+  counter-increment: pain;
+}
+.srx-pains li::before {
+  content: counter(pain);
+  flex: 0 0 60px; height: 51px; display: grid; place-items: center;
+  background: var(--surface); border-radius: 4px;
+  font-weight: 600; font-size: 32px;
+}
+.srx-gif { margin-top: 64px; }
+
+/* Constraints: numbered list + grey question chips */
+.srx-constraints { max-width: 940px; padding-left: 26px; font-size: 20px; line-height: 1.6; }
+.srx-constraints li::marker { font-weight: 600; }
+.srx-constraints li + li { margin-top: 32px; }
+.srx-chips, .srx-asks { display: flex; flex-direction: column; gap: 12px; margin-top: 48px; padding: 0; list-style: none; }
+.srx-chips { align-items: flex-start; }
+.srx-chips li, .srx-asks li {
+  background: var(--surface); border-radius: var(--radius); padding: 16px;
+  font-size: 16px; line-height: 1.6; color: var(--ink-strong);
+}
+.srx-chips li { font-weight: 600; max-width: 100%; }
+/* Staircase of fixed chip widths, as on the original */
+.srx-chips li:nth-child(1) { width: 495px; }
+.srx-chips li:nth-child(2) { width: 717px; }
+.srx-chips li:nth-child(3) { width: 940px; }
+
+/* Research: personas */
+.srx-personas { margin-top: 48px; }
+
+/* Goal + feature cards (cs-cards with bigger text and 32px gaps) */
+.srx-goals, .srx-features { gap: 32px; padding: 0; list-style: none; color: var(--ink-strong); }
+.srx-goals { margin-top: 40px; padding-bottom: 24px; align-items: center; }
+.srx-goals .cs-card { font-weight: 600; font-size: 20px; }
+.srx-features .cs-card h3 { margin-bottom: 16px; }
+.srx-features .cs-card p { font-size: 20px; line-height: 1.6; }
+
+/* Ideation: journey map + insight/action callouts */
+.srx-journey { margin-top: 16px; }
+.srx-journey img { background: var(--surface); }
+.cs-section > .srx-callout {
+  max-width: none; margin-top: 16px; padding: 24px;
+  background: var(--surface); border-radius: var(--radius);
+}
+.cs-section > .srx-callout + .srx-callout { margin-top: 12px; }
+
+/* Iteration: caption, then notes column beside a wireframe */
+.srx-concept {
+  display: grid; grid-template-columns: 250px minmax(0, 1fr); column-gap: 24px;
+  align-items: start; margin-top: 48px;
+}
+.srx-concept h3 { grid-column: 1 / -1; margin-bottom: 16px; }
+.srx-concept img { width: 100%; border-radius: var(--radius); }
+.srx-notes { display: flex; flex-direction: column; gap: 16px; }
+.srx-notes p {
+  background: var(--surface); border-radius: var(--radius); padding: 16px;
+  font-size: 16px; line-height: 1.6; color: var(--ink-strong);
+}
+
+/* Final designs: annotated screens */
+.srx-screen-title { font-size: 24px; margin-top: 128px; }
+.cs-section > p + .srx-screen-title { margin-top: 16px; }
+.srx-screen { margin-top: 32px; }
+.srx-screen img { border-radius: 0; }
+.srx-screen--narrow { max-width: 785px; }
+
+/* 24px below the heading (collapses with the heading's 16px margin) */
+.srx-prototype, .srx-stats { margin-top: 24px; }
+.srx-stats span { font-weight: 500; color: var(--ink-strong); }
+
+@media (max-width: 999.98px) {
+  .srx-band { margin-top: 64px; padding-top: 24px; }
+  .srx-band .cs-body { width: calc(100% - 32px); }
+  .srx-band + .cs-body > .cs-section:first-child { margin-top: 64px; }
+
+  .srx-pains { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; }
+  .srx-pains li, .srx-constraints, .cs-section > .srx-callout,
+  .srx-goals .cs-card, .srx-features .cs-card p { font-size: 18px; }
+  .srx-gif { margin-top: 48px; }
+  .srx-chips li:nth-child(n) { width: auto; }
+
+  .srx-goals, .srx-features { gap: 16px; }
+  .srx-goals { padding-bottom: 0; }
+
+  .srx-concept { grid-template-columns: 1fr; row-gap: 16px; }
+  .srx-concept h3 { margin-bottom: 0; }
+
+  .srx-screen-title { margin-top: 64px; }
+  .srx-screen--narrow { max-width: none; }
+  .srx-prototype, .srx-stats { margin-top: 16px; }
+}

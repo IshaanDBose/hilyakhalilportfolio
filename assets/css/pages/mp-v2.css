@@ -1,0 +1,102 @@
+/* Marketplace v2 (mp-v2.html) — page-specific layout on top of styles.css */
+
+/* Hero: blue panel almost as wide as the viewport (6px inset), with the
+   screenshot centred on its bottom edge. */
+.mp-hero {
+  margin-top: 96px;
+  margin-inline: calc(50% - 50vw + 6px);
+  padding-top: 60px;
+  background: var(--accent);
+}
+.cs-figure.mp-hero img {
+  width: min(1011px, 70.2vw);
+  margin-inline: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Business impact: two goals, each with a small centred icon above */
+.mp-goals { margin-top: 64px; list-style: none; padding: 0; }
+.mp-goals img { width: 48px; margin: 0 auto 32px; }
+.mp-goals p { font-size: 20px; line-height: 1.6; color: var(--ink-strong); }
+
+/* Audit: three old pages, each on a blue panel with a caption below */
+.mp-audit-section { margin-top: 144px; }
+.mp-audit { margin-top: 48px; list-style: none; padding: 0; }
+.mp-audit h3 { font-weight: 500; font-size: 20px; line-height: 1.6; color: var(--ink); }
+.mp-audit figure {
+  margin-top: 16px; padding-top: 16px;
+  background: var(--accent); border-radius: var(--radius);
+}
+.mp-audit img { height: 188px; width: auto; margin-inline: auto; border-radius: 4px 4px 0 0; }
+.mp-audit p { margin-top: 16px; font-size: 16px; line-height: 1.6; color: var(--ink-strong); }
+
+/* 4px less side padding so the lines break exactly like the original */
+.mp-quote { margin-top: 112px; padding-inline: 92px; }
+
+/* Solution: centred labels above each before/after comparison */
+.mp-caption {
+  margin: 48px 0 32px;
+  font-weight: 500; font-size: 24px; line-height: 1.6; color: var(--ink-strong); text-align: center;
+}
+.mp-compare + .mp-caption { margin-top: 128px; }
+.mp-features + .mp-caption { margin-top: 128px; }
+
+/* Before/after slider. The "before" image is clipped to the left of --pos;
+   an invisible range input on top handles mouse, touch and keyboard. */
+.mp-compare {
+  --pos: 33%;
+  position: relative; overflow: hidden;
+  aspect-ratio: 1152 / 655;
+  border: 1px solid #ececec; border-radius: var(--radius);
+  background: var(--surface);
+}
+.mp-compare--brand { aspect-ratio: 1152 / 930; }
+.mp-compare img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+}
+.mp-compare-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.mp-compare-range {
+  position: absolute; inset: 0; z-index: 2;
+  width: 100%; height: 100%; margin: 0;
+  opacity: 0; cursor: ew-resize;
+  touch-action: pan-y; /* vertical swipes still scroll the page */
+}
+.mp-compare-handle {
+  position: absolute; top: 50%; left: var(--pos); z-index: 1;
+  width: 50px; height: 50px; transform: translate(-50%, -50%);
+  display: grid; place-items: center;
+  border-radius: 50%; color: #4f4f4f;
+  background: rgba(255, 255, 255, .7); box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+  pointer-events: none;
+}
+.mp-compare-range:focus-visible + .mp-compare-handle { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* Quick add / Pinned filters: label, one-liner and a short clip */
+.mp-features { list-style: none; padding: 0; }
+.mp-features h4 { font-weight: 500; font-size: 16px; line-height: 1.6; color: var(--ink-strong); }
+.mp-features p { margin-top: 8px; font-size: 16px; line-height: 1.6; color: var(--ink-strong); }
+.mp-features video { width: 100%; height: 100px; margin-top: 24px; object-fit: scale-down; }
+
+/* Impact numbers: "45%" big, "— goal 20%" smaller on the same line */
+.mp-stats { margin-top: 48px; column-gap: 16px; }
+.mp-stats small { font-size: 24px; }
+.mp-stats span { display: block; font-weight: 500; color: var(--ink-strong); }
+
+@media (max-width: 999.98px) {
+  .mp-hero { margin-top: 64px; margin-inline: 0; padding: 40px 24px 0; }
+  .cs-figure.mp-hero img { width: 100%; }
+  .mp-goals { margin-top: 48px; gap: 48px; }
+  .mp-goals p { font-size: 18px; }
+  .mp-audit-section { margin-top: 96px; }
+  .mp-audit { gap: 48px; }
+  .mp-quote { margin-top: 64px; padding-inline: 24px; }
+  .mp-compare + .mp-caption, .mp-features + .mp-caption { margin-top: 80px; }
+  /* Show the whole screenshot on small screens instead of a cropped strip */
+  .mp-compare { aspect-ratio: 2400 / 1668; }
+  .mp-compare--brand { aspect-ratio: 2400 / 2376; }
+  .mp-compare-handle { width: 40px; height: 40px; }
+  .mp-features { gap: 40px; }
+  .mp-stats { gap: 24px; }
+  .mp-stats strong { font-size: 40px; }
+}
