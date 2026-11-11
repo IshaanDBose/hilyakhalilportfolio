@@ -1,0 +1,359 @@
+/* ==========================================================================
+   Hilya Khalil — portfolio styles
+   One stylesheet for the whole site. Sections:
+     1. Fonts            5. Footer
+     2. Tokens           6. Home + About
+     3. Base             7. Case-study components
+     4. Header / nav     8. Motion + utilities
+   Breakpoint: 1000px (below = phone/tablet layout).
+   ========================================================================== */
+
+/* 1. Fonts ---------------------------------------------------------------- */
+@font-face { font-family: "Alcyone"; src: url("../fonts/alcyone-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Alcyone"; src: url("../fonts/alcyone-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Alcyone"; src: url("../fonts/alcyone-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Alcyone"; src: url("../fonts/alcyone-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Alcyone"; src: url("../fonts/alcyone-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Alcyone"; src: url("../fonts/alcyone-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Satoshi"; src: url("../fonts/satoshi-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Satoshi"; src: url("../fonts/satoshi-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Satoshi"; src: url("../fonts/satoshi-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+/* 2. Tokens --------------------------------------------------------------- */
+:root {
+  /* Text */
+  --ink: #161616;          /* body text */
+  --ink-strong: #292626;   /* headings, case-study text */
+  --muted: #8e8e93;        /* card descriptions */
+  --grey: #707070;
+  --line: #c8c8c8;         /* dividers */
+
+  /* Surfaces */
+  --bg: #ffffff;
+  --surface: #f9f9f9;      /* quote boxes, callout cards */
+
+  /* Project colours (one per case study) */
+  --pink: #efcbe6;         /* Sales Rules */
+  --blue: #cceaf0;         /* Marketplace v2 */
+  --green: #b2d9a0;        /* SRx Tracker */
+  --orange: #eb975b;       /* Healthian */
+  --lavender: #e3e3ff;
+  --yellow: #ffe7a9;
+  --pink-light: #ffe3fb;
+
+  /* Each case-study page sets --accent on <body> to its project colour. */
+  --accent: var(--blue);
+
+  /* Type */
+  --font: "Alcyone", "Helvetica Neue", Arial, sans-serif;
+  --font-nav: "Satoshi", "Helvetica Neue", Arial, sans-serif;
+
+  /* Layout */
+  --gutter: 64px;          /* page side padding */
+  --content: 1152px;       /* case-study text column */
+  --wide: 1312px;          /* home grid */
+  --radius: 6px;
+}
+
+@media (max-width: 999.98px) {
+  :root { --gutter: 40px; }
+}
+
+/* 3. Base ----------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, video, svg { display: block; max-width: 100%; }
+img, video { height: auto; }
+h1, h2, h3, h4, p, ul, ol, figure, blockquote, dl, dd { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+.skip-link {
+  position: absolute; left: 16px; top: -48px; z-index: 100;
+  background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 6px;
+}
+.skip-link:focus { top: 12px; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* 4. Header / nav --------------------------------------------------------- */
+.site-header {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 50;
+  height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.site-nav { display: flex; gap: 96px; }
+.site-nav a {
+  font-family: var(--font-nav);
+  font-size: 16px; line-height: 1.6; color: var(--ink);
+}
+.site-nav a[aria-current="page"] { font-weight: 700; }
+.site-nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Case studies: header sticks to the top, hides while scrolling down and
+   slides back in when scrolling up (see main.js). */
+.page-case .site-header {
+  position: fixed;
+  transition: transform .35s ease, background-color .25s ease, box-shadow .25s ease;
+}
+.page-case .site-header.is-scrolled { background: rgba(255, 255, 255, .92); backdrop-filter: blur(8px); box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+.page-case .site-header.is-hidden { transform: translateY(-100%); }
+
+@media (max-width: 999.98px) {
+  .site-nav { gap: 40px; }
+}
+
+/* 5. Footer --------------------------------------------------------------- */
+.site-footer {
+  width: min(var(--footer-width, var(--wide)), 100% - 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 96px 0 32px;
+  display: flex; justify-content: space-between; align-items: center; gap: 32px;
+  font-size: 16px; line-height: 1.6; color: var(--ink);
+}
+.site-footer ul { display: flex; gap: 32px; list-style: none; padding: 0; }
+.site-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+@media (max-width: 999.98px) {
+  .site-footer { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 80px; }
+  .site-footer ul { flex-direction: column; gap: 16px; }
+}
+
+/* 6. Home + About --------------------------------------------------------- */
+.home, .about { position: relative; }
+
+.wrap { width: min(var(--wide), 100% - 2 * var(--gutter)); margin: 0 auto; }
+
+/* Decorative shapes, positioned per page with inline custom properties:
+   <img class="shape" style="--x: 6.5%; --y: 81px; --size: 42px"> */
+.shape {
+  position: absolute; left: var(--x); top: var(--y);
+  width: var(--size); height: auto;
+  rotate: var(--rot, 0deg);
+  pointer-events: none; user-select: none;
+  animation: pop .7s cubic-bezier(.2, .8, .2, 1) both;
+  animation-delay: var(--delay, .3s);
+}
+@keyframes pop { from { opacity: 0; translate: 0 48px; scale: .72; } to { opacity: 1; translate: 0 0; scale: 1; } }
+
+/* Show different shape sets on desktop vs phone */
+.only-mobile { display: none; }
+@media (max-width: 999.98px) {
+  .only-desktop { display: none; }
+  .only-mobile { display: block; }
+}
+
+.hero { position: relative; padding-top: 154px; }
+.hero h1 { font-weight: 500; font-size: 48px; line-height: 1.2; color: var(--ink); }
+.hero-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 32px; }
+.hero-intro p { max-width: 632px; }
+.hero-intro strong { font-weight: 500; }
+
+.work { padding-top: 128px; }
+.work h2 { font-weight: 500; font-size: 48px; line-height: 1.2; color: var(--ink); }
+.work-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  column-gap: 40px; row-gap: 64px; margin-top: 32px;
+  list-style: none; padding: 0;
+}
+.work-card a { display: block; }
+.work-card .thumb { overflow: hidden; border-radius: 4px; aspect-ratio: 636 / 314; }
+.work-card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s cubic-bezier(.2, .8, .2, 1); }
+.work-card a:hover .thumb img, .work-card a:focus-visible .thumb img { transform: scale(1.04); }
+.work-card h3 { font-weight: 400; font-size: 16px; line-height: 1.6; margin-top: 24px; }
+.work-card p { color: var(--muted); margin-top: 8px; }
+
+.about-hero {
+  position: relative;
+  display: grid; grid-template-columns: 467px minmax(0, 525px);
+  gap: 68px; align-items: center; justify-content: center;
+  padding-top: 162px;
+}
+.portrait-wrap { position: relative; }
+.portrait {
+  width: 467px; aspect-ratio: 1;
+  object-fit: cover; object-position: 50% 30%;
+  -webkit-mask: url("../img/about/portrait-mask.svg") center / 100% 100% no-repeat;
+          mask: url("../img/about/portrait-mask.svg") center / 100% 100% no-repeat;
+}
+.about-copy { color: var(--ink-strong); line-height: 1.2; }
+.about-copy h1 { font-weight: 600; font-size: 24px; line-height: 1.2; margin-bottom: 32px; }
+.about-copy p + p, .about-copy p + ul { margin-top: 19px; }
+.about-copy p + ul { margin-top: 0; }
+.about-copy ul { padding-left: 20px; }
+
+@media (max-width: 999.98px) {
+  .hero { padding-top: 130px; }
+  .hero h1, .work h2 { font-size: 32px; }
+  .hero-intro { grid-template-columns: 1fr; gap: 48px; }
+  .work { padding-top: 80px; }
+  .work-grid { grid-template-columns: 1fr; row-gap: 64px; }
+  .about-hero { grid-template-columns: 1fr; gap: 62px; padding-top: 128px; justify-items: start; }
+  .portrait-wrap { justify-self: center; }
+  .portrait { width: min(281px, 72vw); }
+  .about-copy h1 { margin-bottom: 30px; }
+}
+
+/* 7. Case-study components ------------------------------------------------ */
+/*
+  Page skeleton (see healthian.html for a full example):
+
+  <body class="page-case" style="--accent: var(--orange)">
+    <header class="site-header">…</header>
+    <main id="main">
+      <div class="cs-cover"><h1 class="cs-title">Title</h1></div>
+      <svg class="cs-wave">…</svg>
+      <div class="cs-body">
+        <section class="cs-section">…</section>
+      </div>
+    </main>
+    <footer class="site-footer">…</footer>
+*/
+.page-case { --footer-width: var(--content); color: var(--ink); }
+
+.cs-cover {
+  background: var(--accent);
+  height: 250px;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding: 0 var(--gutter) 20px;
+}
+.cs-title {
+  font-weight: 600; font-size: 72px; line-height: 1.6; color: var(--ink-strong);
+  text-align: center;
+}
+.cs-wave { display: block; width: 100%; height: clamp(36px, 6.9vw, 99px); color: var(--accent); }
+.cs-wave path { fill: currentColor; }
+
+.cs-body { width: min(var(--content), 100% - 2 * var(--gutter)); margin: 0 auto; }
+
+/* Sections: heading + text, separated by generous spacing */
+.cs-section { margin-top: 96px; }
+.cs-section:first-child { margin-top: 64px; }
+.cs-h {
+  font-weight: 600; font-size: 24px; line-height: 1.2; color: var(--ink);
+  margin-bottom: 16px;
+}
+.cs-section > p, .cs-text { font-size: 20px; line-height: 1.6; color: var(--ink); max-width: 940px; }
+.cs-text--full { max-width: none; }
+.cs-section > p + p, .cs-text + .cs-text { margin-top: 32px; }
+
+/* Smaller bold heading inside a section ("Community section") */
+.cs-subhead { font-weight: 600; font-size: 20px; line-height: 1.6; color: var(--ink-strong); }
+.cs-subhead + p { font-size: 20px; line-height: 1.6; margin-top: 4px; }
+
+/* Centered label above an image ("Vitals page") */
+.cs-caption { font-weight: 500; font-size: 20px; line-height: 1.6; color: var(--ink-strong); text-align: center; }
+
+/* Highlighted phrase inside text: <mark>…</mark> uses the page accent */
+mark, .hl { background: var(--accent); color: inherit; padding: 0 1px; }
+
+/* Context + project facts */
+.cs-meta {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 48px; padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+.cs-meta dt { font-weight: 600; font-size: 18px; line-height: 1.2; color: var(--ink-strong); margin-bottom: 11px; }
+.cs-meta dd { font-size: 18px; line-height: 1.6; color: var(--ink); }
+
+/* Figures. Add .cs-panel to put the image on a coloured block. */
+.cs-figure { margin-top: 48px; }
+.cs-figure img, .cs-figure video { width: 100%; border-radius: var(--radius); }
+.cs-figure figcaption { font-size: 16px; line-height: 1.6; color: var(--grey); margin-top: 12px; text-align: center; }
+.cs-panel { background: var(--accent); border-radius: var(--radius); padding: 16px; }
+.cs-panel--surface { background: var(--surface); }
+.cs-figure--narrow { max-width: 1000px; margin-left: auto; margin-right: auto; }
+
+/* Two (or more) images side by side */
+.cs-grid { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: 32px; margin-top: 32px; align-items: start; }
+.cs-grid > * { min-width: 0; }
+
+/* Big statement box ("How can we…", problem statements) */
+.cs-quote {
+  margin-top: 96px;
+  background: var(--surface); border-radius: 24px;
+  padding: 96px;
+  font-weight: 700; font-size: 40px; line-height: 1.6; color: var(--ink-strong);
+}
+.cs-quote p { font: inherit; }
+
+/* Grey callout cards (problems, challenges, insights) */
+.cs-cards { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.cs-card { background: var(--surface); border-radius: 12px; padding: 24px; font-size: 16px; line-height: 1.6; }
+.cs-card h3 { font-weight: 600; font-size: 20px; line-height: 1.6; color: var(--ink-strong); margin-bottom: 8px; }
+
+/* Impact numbers */
+.cs-stats { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 32px; margin-top: 32px; list-style: none; padding: 0; }
+.cs-stats strong { display: block; font-weight: 600; font-size: 48px; line-height: 1.6; color: var(--ink-strong); }
+.cs-stats span { font-size: 20px; line-height: 1.6; }
+
+/* Horizontal carousel: scroll-snap track + optional prev/next buttons.
+   <div class="carousel" data-carousel>
+     <div class="carousel-track">…slides…</div>
+     <button class="carousel-btn" data-dir="-1">…</button><button … data-dir="1">…</button>
+   </div> */
+.carousel { position: relative; margin-top: 32px; }
+.carousel-track {
+  display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track > * { flex: 0 0 100%; scroll-snap-align: start; }
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%; border: 0;
+  background: transparent; cursor: pointer; display: grid; place-items: center;
+}
+.carousel-btn[data-dir="-1"] { left: 8px; }
+.carousel-btn[data-dir="1"] { right: 8px; }
+.carousel-btn:disabled { opacity: .3; cursor: default; }
+.carousel-btn svg { width: 24px; height: 24px; }
+
+/* Zoomable images open in a lightbox (main.js adds this to case-study figures) */
+.zoomable { cursor: zoom-in; }
+.lightbox {
+  border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh;
+  width: 100vw; height: 100vh;
+}
+.lightbox::backdrop { background: rgba(0, 0, 0, .85); }
+.lightbox img { width: 100%; height: 100%; object-fit: contain; padding: 4vmin; cursor: zoom-out; }
+.lightbox-close {
+  position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%;
+  border: 0; background: rgba(255, 255, 255, .15); color: #fff; font-size: 28px; line-height: 1; cursor: pointer;
+}
+
+@media (max-width: 999.98px) {
+  .cs-cover { height: 170px; padding-bottom: 8px; }
+  .cs-title { font-size: 40px; }
+  .cs-section { margin-top: 64px; }
+  .cs-section:first-child { margin-top: 48px; }
+  .cs-section > p, .cs-text, .cs-subhead + p { font-size: 18px; }
+  .cs-meta { grid-template-columns: 1fr; gap: 32px; }
+  .cs-grid, .cs-cards, .cs-stats { grid-template-columns: 1fr; }
+  .cs-quote { padding: 40px 24px; font-size: 24px; margin-top: 64px; }
+  .cs-stats strong { font-size: 40px; }
+}
+
+/* 8. Motion + utilities --------------------------------------------------- */
+/* Staggered fade-in for elements marked .appear (home + about).
+   Set --delay inline to stagger: style="--delay: .2s" */
+@keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.appear { animation: appear .6s cubic-bezier(.2, .8, .2, 1) both; animation-delay: var(--delay, 0s); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

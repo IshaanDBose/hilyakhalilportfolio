@@ -1,0 +1,95 @@
+<!doctype html>
+<!--
+  TEMPLATE FOR A NEW CASE STUDY
+  1. Copy this file to <slug>.html (the URL will be hilya.me/<slug>).
+  2. Replace every TODO.
+  3. Put images in assets/img/<slug>/ (WebP, max 2400px wide) and videos in assets/video/.
+  4. Add a card for it on index.html and an entry in sitemap.xml.
+  Components available (see section 7 of assets/css/styles.css):
+    .cs-section, .cs-h, .cs-subhead, .cs-caption, .cs-meta, .cs-figure, .cs-panel,
+    .cs-grid, .cs-quote, .cs-cards/.cs-card, .cs-stats, .carousel, <mark>
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TODO Project name — Hilya Khalil</title>
+  <meta name="description" content="TODO one-sentence summary of the project.">
+  <link rel="canonical" href="https://www.hilya.me/TODO-slug">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="TODO Project name — Hilya Khalil">
+  <meta property="og:description" content="TODO one-sentence summary of the project.">
+  <meta property="og:url" content="https://www.hilya.me/TODO-slug">
+  <meta property="og:image" content="https://www.hilya.me/assets/img/home/card-TODO.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/alcyone-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/alcyone-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/analytics.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<!-- --accent is the project colour: var(--pink) | var(--blue) | var(--green) | var(--orange) -->
+<body id="top" class="page-case" style="--accent: var(--TODO)">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main">
+      <a href="./">Home</a>
+      <a href="about">About me</a>
+      <a href="https://drive.google.com/file/d/14Z7RIZ9NV_spaWXV6bZhX1Zu1Br9sVu4/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="cs-cover">
+      <h1 class="cs-title">TODO Project name</h1>
+    </div>
+    <!-- Wave under the cover. Any path works; keep viewBox 0 0 1440 99. -->
+    <svg class="cs-wave" viewBox="0 0 1440 99" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 28.3 48 44.8C96 61.4 192 94.1 288 96.7 384 99 480 70.7 576 51.8 672 33.1 768 23.4 864 30.6 960 37.6 1056 61.4 1152 75.4 1248 89.7 1344 94.1 1392 96.7L1440 99V0H0Z"/>
+    </svg>
+
+    <div class="cs-body">
+      <section class="cs-section" aria-labelledby="context">
+        <h2 class="cs-h" id="context">Context</h2>
+        <p>TODO</p>
+        <dl class="cs-meta">
+          <div><dt>Time duration</dt><dd>TODO</dd></div>
+          <div><dt>Contribution</dt><dd>Product strategy<br>User research<br>Product design</dd></div>
+          <div><dt>Team</dt><dd>TODO</dd></div>
+        </dl>
+      </section>
+
+      <figure class="cs-figure">
+        <img src="assets/img/TODO.webp" alt="TODO describe the image" width="2400" height="1200" loading="lazy" decoding="async">
+      </figure>
+
+      <section class="cs-section" aria-labelledby="problem">
+        <h2 class="cs-h" id="problem">Problem</h2>
+        <p>TODO — wrap key phrases in <mark>mark</mark> to highlight them.</p>
+      </section>
+
+      <div class="cs-quote"><p>TODO big statement with a <mark>highlight</mark>.</p></div>
+
+      <section class="cs-section" aria-labelledby="prototype">
+        <h2 class="cs-h" id="prototype">Final prototype</h2>
+        <figure class="cs-figure">
+          <video data-autoplay src="assets/video/TODO.mp4" poster="assets/video/TODO-poster.webp" muted loop playsinline preload="none" aria-label="TODO describe the video"></video>
+        </figure>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Hilya Khalil 2026</p>
+    <ul>
+      <li><a href="mailto:hilyaadil@gmail.com">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/hilyakhalil/" target="_blank" rel="noopener">Linkedin</a></li>
+      <li><a href="#top">Back to the top</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
